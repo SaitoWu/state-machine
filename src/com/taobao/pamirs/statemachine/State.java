@@ -10,10 +10,10 @@ public class State {
 
 	// signal point
 	public Signal			enter;
+	public Signal			exec;
 	public Signal			exit;
 
 	public State(String name) {
-		super();
 		this.name = name;
 		this.nexts = new ArrayList<Transition>();
 	}
@@ -28,7 +28,8 @@ public class State {
 	public void execute() {
 		if (enter != null)
 			enter.dispatch();
-		System.out.println("<===========i am in " + name + " state===============>");
+		if(exec != null)
+			exec.dispatch();
 		if (exit != null)
 			exit.dispatch();
 	}

@@ -11,7 +11,7 @@ public class Main {
 		Vehicle v = new Vehicle();
 		Machine m = new Machine();
 		m.context = new HashMap<String, Object>();
-		m.context.put("a", 5);
+		m.context.put("a", 8);
 		m.regProcess(v.states);
 		m.run();
 		Executor.shutdown();

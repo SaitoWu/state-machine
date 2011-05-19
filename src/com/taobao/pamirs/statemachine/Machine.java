@@ -13,12 +13,19 @@ public class Machine {
 
 	public Map<String, State>	states;
 
+	public ScriptEngineManager	factory;
+
+	public ScriptEngine			engine;
+
 	public void regProcess(Map<String, State> states) {
 		this.states = states;
+		factory = new ScriptEngineManager();
+		engine = factory.getEngineByName("javascript");
 	}
 
 	public void run() {
 		State s = states.get("start");
+		// TODO fork join support
 		while (s != null) {
 			s.execute();
 			s = states.get(next(s));
@@ -28,8 +35,6 @@ public class Machine {
 	private String next(State s) {
 		String next = null;
 		for (Transition t : s.nexts) {
-			ScriptEngineManager manager = new ScriptEngineManager();
-			ScriptEngine engine = manager.getEngineByName("javascript");
 			// has "exp" and "to" #=> eval exp then if true to = next else
 			// continue
 			// has "to" and "exp" == null #=> then to = next
