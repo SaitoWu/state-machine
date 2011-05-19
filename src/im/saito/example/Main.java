@@ -1,9 +1,10 @@
-package com.taobao.pamirs.example;
+package im.saito.example;
+
+import im.saito.statemachine.Executor;
+import im.saito.statemachine.Machine;
 
 import java.util.HashMap;
 
-import com.taobao.pamirs.statemachine.Executor;
-import com.taobao.pamirs.statemachine.Machine;
 
 public class Main {
 

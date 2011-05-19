@@ -1,10 +1,11 @@
-package com.taobao.pamirs.example;
+package im.saito.example;
+
+import im.saito.statemachine.Signal;
+import im.saito.statemachine.State;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.taobao.pamirs.statemachine.Signal;
-import com.taobao.pamirs.statemachine.State;
 
 public class Vehicle {
 

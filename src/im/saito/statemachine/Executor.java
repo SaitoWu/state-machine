@@ -1,4 +1,4 @@
-package com.taobao.pamirs.statemachine;
+package im.saito.statemachine;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

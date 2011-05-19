@@ -1,4 +1,4 @@
-package com.taobao.pamirs.example;
+package im.saito.example;
 
 public class Car {
 

@@ -1,4 +1,4 @@
-package com.taobao.pamirs.statemachine;
+package im.saito.statemachine;
 
 import java.lang.reflect.Method;
 
