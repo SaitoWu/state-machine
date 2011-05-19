@@ -15,7 +15,7 @@ public class Signal {
 		this.slots = new ArrayList<Slot>();
 	}
 
-	public void add(Object listener, Boolean sync, String callback, Object... args) {
+	public Signal add(Object listener, Boolean sync, String callback, Object... args) {
 		Slot slot = new Slot(listener, sync, args);
 		try {
 			slot.delegate = listener.getClass().getMethod(callback, params);
@@ -25,6 +25,7 @@ public class Signal {
 			e.printStackTrace();
 		}
 		slots.add(slot);
+		return this;
 	}
 
 	public void dispatch() {
