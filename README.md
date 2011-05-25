@@ -1,7 +1,7 @@
 STATEMACHINE
 ============
 
-an useless library for refactory ur messy if/else business logic.
+an useless library for refactor ur messy if/else business logic.
 
 Requirements
 ------------
