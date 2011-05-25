@@ -31,6 +31,11 @@ Mini DSL
     State end = new State("end");
     end.exec = new Signal(String.class).add(callee, true, "beep", "<============= i am in end state ===============>");
 
+Javascript Interpreter
+----------------------
+
+ * use it in Transition class / unless method,true or false?
+
 Running Statemachine
 --------------------
 
