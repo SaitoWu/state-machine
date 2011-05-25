@@ -25,7 +25,7 @@ Mini DSL
     service.exit = new Signal(String.class).add(callee, true, "beep", "<============= service exit byeWorld ===============>");
     // new task state
     State task = new State("task");
-    task.enter = new Signal(String.class).add(callee, true, "beep", "<============= task enter helloWorld ===============>");
+    task.enter = new Signal(String.class).add(callee, false, "beep", "<============= task enter helloWorld ===============>");
     task.to("end");
     // new end state
     State end = new State("end");
