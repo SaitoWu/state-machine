@@ -41,7 +41,7 @@ Running Statemachine
 
  exec the src/example Main to run a statemachine.
 
-Architexture Overview
+Architecture Overview
 ---------------------
 
 Statemachine is organized into two parts: a state machine and a java signals which is inspired by as3signals.each state has three inject point.(enter exec exit)u can use it do anything u want with signals.
