@@ -1,6 +1,6 @@
 package im.saito.example;
 
-public class Car {
+public class Callee {
 
 	public void beep(String word) {
 		System.out.println(word);
