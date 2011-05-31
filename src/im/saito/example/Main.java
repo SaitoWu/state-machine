@@ -11,7 +11,7 @@ public class Main {
 		Process v = new Process();
 		Machine m = new Machine();
 		m.context = new HashMap<String, Object>();
-		m.context.put("a", 8);
+		m.context.put("a", 4);
 		m.regProcess(v.states);
 		m.run();
 		//shutdown if all of these are executed.
