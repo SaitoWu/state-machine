@@ -14,8 +14,8 @@ Mini DSL
     State start = new State("start");
     start.enter = new Signal(String.class).add(callee, true, "beep", "<============= start enter helloWorld ===============>");
     start.exec = new Signal(String.class).add(callee, true, "beep", "<============= i am in start state ===============>");
-    start.to("service").unless("a > 5");
-    start.to("task").unless("a <= 5");
+    start.to("service").when("a > 5");
+    start.to("task").when("a <= 5");
     // new service state
     State service = new State("service");
     service.to("end");
@@ -34,7 +34,7 @@ Mini DSL
 Javascript Interpreter
 ----------------------
 
- * use it in Transition class / unless method,true or false?
+ * use it in Transition class / when method,true or false?
 
 Running Statemachine
 --------------------
