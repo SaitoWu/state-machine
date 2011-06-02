@@ -40,9 +40,12 @@ Graphviz is open source graph visualization software.
 
 #### install grapviz
 
-on ubuntu or debian: 
+on ubuntu or debian:
+
     apt-get install graphviz 
+
 others:
+
     http://www.graphviz.org/Download..php
 
 #### gen dot file
