@@ -11,6 +11,7 @@ Requirements
 Mini DSL
 --------
 
+```java
     State start = new State("start");
     start.enter = new Signal(String.class).add(callee, true, "beep", "<============= start enter helloWorld ===============>");
     start.exec = new Signal(String.class).add(callee, true, "beep", "<============= i am in start state ===============>");
@@ -30,25 +31,26 @@ Mini DSL
     // new end state
     State end = new State("end");
     end.exec = new Signal(String.class).add(callee, true, "beep", "<============= i am in end state ===============>");
+```
 
 Dot Support
 -----------
 
 Graphviz is open source graph visualization software.
 
- * install grapviz
+## install grapviz
 
 on ubuntu or debian: 
     apt-get install graphviz 
 others:
     http://www.graphviz.org/Download..php
 
- * gen dot file
+## gen dot file
 
     javac im.saito.Helper.java
     java im.saito.Helper
 
- * gen dot image
+## gen dot image
 
     dot -Tpng your/path/to/im/saito/Helper/fsm.dot > /your/path/to/fsm.png
 
