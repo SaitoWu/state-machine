@@ -31,6 +31,31 @@ Mini DSL
     State end = new State("end");
     end.exec = new Signal(String.class).add(callee, true, "beep", "<============= i am in end state ===============>");
 
+Dot Support
+-----------
+
+Graphviz is open source graph visualization software.
+
+install grapviz
+
+on ubuntu or debian: 
+    apt-get install graphviz 
+others:
+    http://www.graphviz.org/Download..php
+
+gen dot file
+
+    javac im.saito.Helper.java
+    java im.saito.Helper
+
+u will get a *.dot file
+
+    dot -Tpng your/path/to/fsm.dot > /your/path/to/fsm.png
+
+wow:
+
+<img src="http://dl.iteye.com/upload/picture/pic/91595/bbb57a3f-6bb7-3a81-9586-539821d046cf.png" width="800" alt="dot" />
+
 Javascript Interpreter
 ----------------------
 
