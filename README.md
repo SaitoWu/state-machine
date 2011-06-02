@@ -51,7 +51,7 @@ Tips
 
  * Statemachine is not a "java like" java library. if u dont like this style. u can change it by urself.
 
-Contributors
+Author
 ------------
 
  * Saito Wu <saitowu@gmail.com>
