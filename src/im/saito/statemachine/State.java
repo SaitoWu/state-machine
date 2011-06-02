@@ -28,7 +28,7 @@ public class State {
 	public void execute() {
 		if (enter != null)
 			enter.dispatch();
-		if(exec != null)
+		if (exec != null)
 			exec.dispatch();
 		if (exit != null)
 			exit.dispatch();
