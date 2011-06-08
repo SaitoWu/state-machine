@@ -40,19 +40,22 @@ Graphviz is open source graph visualization software.
 
 #### install grapviz
 
-on ubuntu or debian: 
+on ubuntu or debian:
+
     apt-get install graphviz 
+
 others:
+
     http://www.graphviz.org/Download..php
 
 #### gen dot file
 
-    javac im.saito.Helper.java
-    java im.saito.Helper
+    javac im.saito.dot.Helper.java
+    java im.saito.dot.Helper
 
 #### gen dot image
 
-    dot -Tpng your/path/to/im/saito/Helper/fsm.dot > /your/path/to/fsm.png
+    dot -Tpng your/path/to/im/saito/dot/Helper/fsm.dot > /your/path/to/fsm.png
 
 wow:
 
