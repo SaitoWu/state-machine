@@ -18,7 +18,8 @@ public class Signal {
 	public Signal add(Object listener, Boolean sync, String callback, Object... args) {
 		Slot slot = new Slot(listener, sync, args);
 		try {
-			slot.delegate = listener.getClass().getMethod(callback, params);
+			slot.delegate = listener.getClass().getDeclaredMethod(callback, params);
+			slot.delegate.setAccessible(true);
 		} catch (SecurityException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
