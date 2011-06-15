@@ -20,14 +20,14 @@ public class Helper {
 
 	public static void main(String args[]) {
 		// file name
-		File dot = new File("src/im/saito/dot/fsm.dot");
+		File f = new File("src/im/saito/dot/fsm.dot");
 		// dot context
 		String content = ctx(new Process().states);
 
 		try {
-			if (!dot.exists())
-				dot.createNewFile();
-			BufferedWriter output = new BufferedWriter(new FileWriter(dot));
+			if (!f.exists())
+				f.createNewFile();
+			BufferedWriter output = new BufferedWriter(new FileWriter(f));
 			output.write(template);
 			output.write(content);
 			output.write(close);
@@ -36,6 +36,8 @@ public class Helper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		dot(f);
 
 	}
 
@@ -54,6 +56,17 @@ public class Helper {
 		}
 
 		return appender.toString();
+	}
+	
+	private static void dot(File f){
+		String abpath = f.getAbsolutePath();
+		String cmd = "dot -Tpng "+abpath+" -o"+f.getAbsolutePath()+".png";
+		ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
+		try {
+			pb.start();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
