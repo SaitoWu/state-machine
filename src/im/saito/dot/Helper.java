@@ -3,7 +3,7 @@ package im.saito.dot;
 
 import im.saito.statemachine.State;
 import im.saito.statemachine.Transition;
-import im.saito.example.Process;
+import im.saito.example.Procces;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,7 +22,7 @@ public class Helper {
 		// file name
 		File f = new File("src/im/saito/dot/fsm.dot");
 		// dot context
-		String content = ctx(new Process().states);
+		String content = ctx(new Procces().states);
 
 		try {
 			if (!f.exists())

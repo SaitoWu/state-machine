@@ -18,9 +18,9 @@ public class State {
 		this.nexts = new ArrayList<Transition>();
 	}
 
-	public Transition to(String stateName) {
+	public Transition to(State state) {
 		Transition t = new Transition();
-		t.to = stateName;
+		t.to = state.name;
 		nexts.add(t);
 		return t;
 	}

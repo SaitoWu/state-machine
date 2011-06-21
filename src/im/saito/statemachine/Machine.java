@@ -3,6 +3,8 @@ package im.saito.statemachine;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import im.saito.statemachine.Process;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -17,8 +19,9 @@ public class Machine {
 
 	public ScriptEngine			engine;
 
-	public void regProcess(Map<String, State> states) {
-		this.states = states;
+	public void regProcess(Process p) {
+		this.states = p.states;
+		this.context = p.context;
 		factory = new ScriptEngineManager();
 		engine = factory.getEngineByName("javascript");
 	}
