@@ -54,11 +54,9 @@ others:
     javac im.saito.dot.Helper.java
     java im.saito.dot.Helper
 
-#### gen dot image
+### wow:
 
-    dot -Tpng your/path/to/im/saito/dot/Helper/fsm.dot > /your/path/to/fsm.png
-
-wow:
+im.saito.dot folder will found :
 
 <img src="http://dl.iteye.com/upload/picture/pic/91595/bbb57a3f-6bb7-3a81-9586-539821d046cf.png" width="400" alt="dot" />
 
