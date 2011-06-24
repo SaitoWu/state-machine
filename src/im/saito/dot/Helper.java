@@ -61,7 +61,11 @@ public class Helper {
 	private static void dot(File f){
 		String abpath = f.getAbsolutePath();
 		String cmd = "dot -Tpng "+abpath+" -o"+f.getAbsolutePath()+".png";
-		ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
+		ProcessBuilder pb = null;
+		if (System.getProperty("os.name").startsWith("Windows"))
+			pb = new ProcessBuilder("cmd", "/C", cmd);
+		else
+			pb = new ProcessBuilder("bash", "-c", cmd);
 		try {
 			pb.start();
 		} catch (IOException e) {
