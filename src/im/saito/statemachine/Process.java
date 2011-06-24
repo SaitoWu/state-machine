@@ -3,7 +3,7 @@ package im.saito.statemachine;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Process {
+public class Process {
 
 	public Map<String, State> states;
 	
