@@ -1,6 +1,6 @@
-package im.saito.statemachine;
+package im.saito.statemachine.model;
 
-public class Transition {
+public class Path {
 
 	public String exp;
 	public String to;

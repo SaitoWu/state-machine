@@ -1,60 +1,44 @@
 package im.saito.statemachine;
 
+import im.saito.statemachine.model.Process;
+import im.saito.statemachine.model.State;
+import im.saito.statemachine.model.Path;
+
 import java.util.Map;
-import java.util.Map.Entry;
 
-import im.saito.statemachine.Process;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
+import org.mvel2.MVEL;
 
 public class Machine {
 
-	public Map<String, Object>	context;
-
-	public Map<String, State>	states;
-
-	public ScriptEngineManager	factory;
-
-	public ScriptEngine			engine;
+	public Process p;
 
 	public void regProcess(Process p) {
-		this.states = p.states;
-		this.context = p.context;
-		factory = new ScriptEngineManager();
-		engine = factory.getEngineByName("javascript");
+		this.p = p;
 	}
 
-	public void run() {
+	public void run(Map<String, Object> context) {
+		Map<String, State> states = p.states;
 		State s = states.get("start");
-		// TODO fork join support
 		while (s != null) {
-			s.execute();
-			s = states.get(next(s));
+			s.execute(context);
+			s = states.get(next(s, context));
 		}
 	}
 
-	private String next(State s) {
+	private String next(State s, Map<String, Object> context) {
 		String next = null;
-		for (Transition t : s.nexts) {
+		for (Path path : s.nexts) {
 			// has "exp" and "to" #=> eval exp then if true to = next else
 			// continue
 			// has "to" and "exp" == null #=> then to = next
-			if (t.exp == null)
-				next = t.to;
+			if (path.exp == null)
+				next = path.to;
 			else {
-				try {
-					for (Entry<String, Object> entry : context.entrySet()) {
-						engine.put(entry.getKey(), entry.getValue());
-					}
-					Boolean result = (Boolean) engine.eval(t.exp);
-					if (result)
-						next = t.to;
-					else
-						continue;
-				} catch (ScriptException e) {
-					e.printStackTrace();
+				if (MVEL.evalToBoolean(path.exp, context)){
+					next = path.to;
+					break;
+				}else{
+					continue;
 				}
 			}
 		}

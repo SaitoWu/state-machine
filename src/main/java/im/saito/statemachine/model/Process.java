@@ -1,17 +1,18 @@
-package im.saito.statemachine;
+package im.saito.statemachine.model;
+
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Process {
 
+	public String name;
+	
 	public Map<String, State> states;
 	
-	public Map<String, Object> context;
-	
-	public Process() {
+	public Process(String name) {
+		this.name = name;
 		states = new HashMap<String, State>();
-		context = new HashMap<String, Object>();
 	}
 	
 	public State createState(String name){

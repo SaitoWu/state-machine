@@ -1,9 +1,9 @@
-package im.saito.dot;
+package im.saito.statemachine.helper;
 
 
-import im.saito.statemachine.State;
-import im.saito.statemachine.Transition;
-import im.saito.example.Procces;
+import im.saito.statemachine.model.Path;
+import im.saito.statemachine.model.State;
+import im.saito.statemachine.model.Process;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 
-public class Helper {
+public class DotHelper {
 
 	static final String	template	= "digraph finite_state_machine {\n" + "\trankdir=LR;\n" + "\tsize=\"8,5\"\n"
 											+ "\tnode [shape = doublecircle];\n\n";
@@ -22,7 +22,7 @@ public class Helper {
 		// file name
 		File f = new File("src/im/saito/dot/fsm.dot");
 		// dot context
-		String content = ctx(new Procces().states);
+		String content = ctx(new Process("caller").states);
 
 		try {
 			if (!f.exists())
@@ -46,7 +46,7 @@ public class Helper {
 		StringBuilder appender = new StringBuilder();
 
 		for (State state : map.values()) {
-			for (Transition transition : state.nexts) {
+			for (Path transition : state.nexts) {
 				appender.append("\t");
 				appender.append(state.name + " -> " + transition.to);
 				if (transition.exp != null)
