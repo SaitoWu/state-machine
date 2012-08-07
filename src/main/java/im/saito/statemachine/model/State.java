@@ -8,32 +8,32 @@ import org.mvel2.MVEL;
 
 public class State {
 
-	public String			name;
-	public List<Path>		nexts;
+	public String			    name;
+	public List<Transition>		transitions;
 
 	// execute point
-	public String			enter;
-	public String			exec;
-	public String			exit;
+	public String			    enter;
+	public String			    exec;
+	public String			    exit;
 
 	public State(String name) {
 		this.name = name;
-		this.nexts = new ArrayList<Path>();
+		this.transitions = new ArrayList<Transition>();
 	}
 
-	public Path to(State state) {
-		Path path = new Path();
-		path.to = state.name;
-		nexts.add(path);
-		return path;
+	public Transition to(State state) {
+		Transition transition = new Transition();
+		transition.to = state.name;
+        transitions.add(transition);
+		return transition;
 	}
 
 	public void execute(Map<String, Object> context) {
 		if (enter != null)
 			MVEL.eval(enter, context);
 		if (exec != null)
-			MVEL.eval(enter, context);
+			MVEL.eval(exec, context);
 		if (exit != null)
-			MVEL.eval(enter, context);
+			MVEL.eval(exit, context);
 	}
 }

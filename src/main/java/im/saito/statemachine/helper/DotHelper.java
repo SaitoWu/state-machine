@@ -1,7 +1,7 @@
 package im.saito.statemachine.helper;
 
 
-import im.saito.statemachine.model.Path;
+import im.saito.statemachine.model.Transition;
 import im.saito.statemachine.model.State;
 import im.saito.statemachine.model.Process;
 
@@ -36,7 +36,7 @@ public class DotHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		dot(f);
 
 	}
@@ -46,7 +46,7 @@ public class DotHelper {
 		StringBuilder appender = new StringBuilder();
 
 		for (State state : map.values()) {
-			for (Path transition : state.nexts) {
+			for (Transition transition : state.transitions) {
 				appender.append("\t");
 				appender.append(state.name + " -> " + transition.to);
 				if (transition.exp != null)
@@ -57,7 +57,7 @@ public class DotHelper {
 
 		return appender.toString();
 	}
-	
+
 	private static void dot(File f){
 		String abpath = f.getAbsolutePath();
 		String cmd = "dot -Tpng "+abpath+" -o"+f.getAbsolutePath()+".png";
